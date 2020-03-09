@@ -16,16 +16,25 @@ export default {
       movie: {}
     }
   },
+  beforeCreate () {
+    console.log('before create')
+  },
   created: function () {
     this.fetchData()
   },
+  beforeMount () {
+    console.log('before mount')
+  },
+  beforeUpdate () {
+    console.log('before update')
+  },
   computed: {
-styles() {
-    return {
-        background: `url(${BACKDROP_PATH}/${this.movie.backdrop_path}) no-repeat center 0%`
+    styles () {
+      return {
+        background: `url(${BACKDROP_PATH}/${this.movie.backdrop_path}) no-repeat center center`
 
+      }
     }
-}
   },
   methods: {
     fetchData: async function () {
@@ -46,7 +55,7 @@ styles() {
 .movie-wrapper{
     margin:auto;
     position: relative;
-    padding-top: 80vh;
+    padding-top: 45vh;
     background-size: cover;
 }
 .movie-info{
